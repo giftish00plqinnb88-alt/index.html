@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+  <title>Gift Sheep · earn stylishly</title>
+  <!-- Font Awesome for crisp icons (optional but adds pro touch) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    }
+
+    body {
+      background: linear-gradient(145deg, #0b0710 0%, #1a1428 100%);
+      color: #f0edfe;
+      line-height: 1.5;
+      min-height: 100vh;
+      padding: 1rem 1rem 0;
+    }
+
+    /* modern glassmorphism navigation */
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.8rem 1.2rem;
+      background: rgba(255, 255, 255, 0.03);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 215, 0, 0.15);
+      border-radius: 40px;
+      padding: 0.7rem 1.2rem;
+      margin-bottom: 2rem;
+      max-width: 100%;
+      margin-left: auto;
+      margin-right: auto;
+      box-shadow: 0 20px 35px -10px rgba(0,0,0,0.7), 0 0 0 1px rgba(255,215,0,0.1) inset;
+    }
+
+    nav a {
+      color: #eae4ff;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 0.95rem;
+      letter-spacing: 0.2px;
+      transition: 0.2s;
+      padding: 0.2rem 0;
+      border-bottom: 2px solid transparent;
+      white-space: nowrap;
+    }
+
+    nav a:hover {
+      color: #ffdb70;
+      border-bottom-color: #ffd966;
+    }
+
+    /* hero section — big & bold */
+    .hero {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      margin-bottom: 2rem;
+      position: relative;
+    }
+
+    .hero-icon {
+      width: 100px;
+      height: 100px;
+      border-radius: 30% 70% 70% 30% / 30% 55% 45% 70%;
+      background: linear-gradient(135deg, #ffb347, #ff8c42, #d16b2c);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1.2rem;
+      box-shadow: 0 25px 40px -5px #ff8c42, 0 0 0 3px rgba(255,255,240,0.5);
+      overflow: hidden;
+    }
+
+    .hero-icon img {
+      width: 85%;
+      height: 85%;
+      object-fit: contain;
+      filter: drop-shadow(2px 4px 6px black);
+    }
+
+    .hero h1 {
+      font-size: 3.2rem;
+      font-weight: 800;
+      background: linear-gradient(to right, #ffe6b0, #ffbe5c, #fd9e40);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      letter-spacing: -0.02em;
+      text-shadow: 0 0 15px #ff9f4d80;
+      margin-bottom: 0.2rem;
+      line-height: 1.1;
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      color: #cdc4f0;
+      background: rgba(0,0,0,0.3);
+      padding: 0.4rem 1.5rem;
+      border-radius: 50px;
+      backdrop-filter: blur(4px);
+      margin-bottom: 1.5rem;
+      border: 1px solid #ffd96633;
+    }
+
+    .btn-download {
+      background: linear-gradient(145deg, #f5b042, #f07c2c);
+      border: none;
+      color: #0d0a1a;
+      font-weight: 700;
+      font-size: 1.2rem;
+      padding: 0.8rem 2.2rem;
+      border-radius: 50px;
+      box-shadow: 0 15px 25px -5px #b84e00, 0 0 0 2px #ffcf8a inset;
+      cursor: pointer;
+      transition: 0.2s;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      border: 1px solid rgba(255,245,200,0.7);
+    }
+
+    .btn-download i {
+      font-size: 1.4rem;
+    }
+
+    .btn-download:hover {
+      transform: scale(1.04);
+      background: linear-gradient(145deg, #ffbc5a, #ff944d);
+      box-shadow: 0 20px 30px -3px #e0671a;
+    }
+
+    /* download count badge */
+    .badge-downloads {
+      margin-top: 1.2rem;
+      background: rgba(22, 12, 38, 0.7);
+      backdrop-filter: blur(8px);
+      padding: 0.4rem 1.5rem;
+      border-radius: 40px;
+      border: 1px solid rgba(255, 210, 90, 0.4);
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-weight: 600;
+      font-size: 0.9rem;
+    }
+
+    .badge-downloads i {
+      color: #ffbe4d;
+      font-size: 1.1rem;
+    }
+
+    /* feature cards (simple) */
+    .features {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1.2rem;
+      margin: 2rem 0 1.5rem;
+    }
+
+    .feature {
+      background: rgba(20, 12, 40, 0.6);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 200, 100, 0.25);
+      border-radius: 30px;
+      padding: 1.5rem 1rem 1.2rem;
+      text-align: center;
+      flex: 1 1 140px;
+      max-width: 170px;
+      box-shadow: 0 25px 40px -15px black;
+      transition: 0.3s ease;
+    }
+
+    .feature:hover {
+      transform: translateY(-6px);
+      border-color: #ffbb4a;
+      box-shadow: 0 35px 50px -15px #f0822c;
+    }
+
+    .feature i {
+      font-size: 2.2rem;
+      background: linear-gradient(45deg, #fdaa4b, #fb8b3c);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      margin-bottom: 0.5rem;
+    }
+
+    .feature h3 {
+      font-size: 1.4rem;
+      font-weight: 700;
+      letter-spacing: -0.3px;
+      background: linear-gradient(to bottom, #fff5e0, #ffdcb0);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      margin-bottom: 0.3rem;
+    }
+
+    .feature p {
+      color: #b9acdf;
+      font-size: 0.85rem;
+    }
+
+    /* ===== App images gallery (4 images) - في نص الموقع ===== */
+    .app-gallery {
+      margin: 2rem 0 2.5rem;
+    }
+
+    .app-gallery h2 {
+      font-size: 2rem;
+      font-weight: 700;
+      color: #ffdb9f;
+      margin-bottom: 1.5rem;
+      text-align: center;
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.5rem;
+      align-items: stretch;
+    }
+
+    .gallery-item {
+      background: rgba(20, 12, 40, 0.6);
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(255, 200, 100, 0.3);
+      border-radius: 30px;
+      padding: 1rem;
+      box-shadow: 0 20px 30px -10px black;
+      transition: 0.3s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .gallery-item:hover {
+      transform: translateY(-6px);
+      border-color: #ffbb4a;
+      box-shadow: 0 25px 40px -10px #f0822c;
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: auto;
+      border-radius: 20px;
+      display: block;
+      object-fit: cover;
+      background: transparent;
+    }
+
+    /* responsive: 2 columns on tablets, 1 column on phones */
+    @media (max-width: 900px) {
+      .gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 500px) {
+      .gallery-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+    /* ===== END gallery ===== */
+
+    /* about card */
+    .about-card {
+      background: linear-gradient(125deg, #2e234a, #1b1333);
+      border-radius: 40px;
+      padding: 2rem 1.8rem;
+      margin: 2rem 0 2rem;
+      border: 1px solid #ffbc5c55;
+      box-shadow: 0 30px 35px -15px #020012;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .about-card::after {
+      content: "🐑";
+      font-size: 6rem;
+      position: absolute;
+      bottom: -10px;
+      right: 10px;
+      opacity: 0.1;
+      transform: rotate(10deg);
+    }
+
+    .about-card h2 {
+      font-size: 2.2rem;
+      font-weight: 700;
+      color: #ffdb9f;
+      margin-bottom: 0.8rem;
+    }
+
+    .about-card p {
+      font-size: 1.1rem;
+      color: #dbceff;
+      margin-bottom: 1.2rem;
+    }
+
+    .about-card .icon-row {
+      display: flex;
+      gap: 1.5rem;
+      color: #ffc489;
+      flex-wrap: wrap;
+    }
+
+    .about-card .icon-row i {
+      font-size: 1.3rem;
+    }
+
+    /* google play badge */
+    .google-play-badge {
+      display: flex;
+      justify-content: center;
+      margin: 1rem 0 0.5rem;
+    }
+    .google-play-badge a {
+      background: #1d1735;
+      border-radius: 20px;
+      padding: 0.6rem 1.8rem;
+      border: 1px solid #faa53b;
+      color: #fff0d6;
+      font-weight: 600;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      transition: 0.2s;
+      font-size: 0.95rem;
+    }
+    .google-play-badge a:hover {
+      background: #352b58;
+      border-color: #ffc56e;
+    }
+
+    /* Became a Partner callout */
+    .partner-callout {
+      display: flex;
+      justify-content: center;
+      margin: 1.5rem 0 1rem;
+    }
+    .partner-callout span {
+      background: #553c20;
+      color: #ffd9a0;
+      padding: 0.6rem 2rem;
+      border-radius: 40px;
+      font-weight: 600;
+      border: 1px solid #ffad5a;
+      font-size: 1rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    /* footer */
+    footer {
+      text-align: center;
+      padding: 2rem 0.5rem 1.5rem;
+      color: #887bb5;
+      border-top: 1px solid #3a2f5a;
+      margin-top: 2rem;
+      font-size: 1rem;
+    }
+
+    /* mobile fine-tuning */
+    @media (max-width: 480px) {
+      body { padding: 0.8rem 0.8rem 0; }
+      nav { gap: 0.6rem 0.8rem; padding: 0.6rem 0.8rem; }
+      nav a { font-size: 0.85rem; }
+      .hero h1 { font-size: 2.8rem; }
+      .hero p { font-size: 1rem; padding: 0.3rem 1rem; }
+      .btn-download { font-size: 1.1rem; padding: 0.7rem 1.8rem; }
+      .badge-downloads { font-size: 0.8rem; }
+      .feature { max-width: 150px; padding: 1.2rem 0.8rem; }
+      .feature h3 { font-size: 1.2rem; }
+      .feature i { font-size: 2rem; }
+      .about-card { padding: 1.5rem; }
+      .about-card h2 { font-size: 1.8rem; }
+      .about-card p { font-size: 1rem; }
+      .app-gallery h2 { font-size: 1.8rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="privacy.html">Privacy</a>
+    <a href="terms.html">Terms</a>
+    <a href="delete-account.html">Delete</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+
+  <!-- Hero section with app icon -->
+  <section class="hero">
+    <div class="hero-icon">
+      <img src="https://firebasestorage.googleapis.com/v0/b/gift-drop-73021.firebasestorage.app/o/photo_2026-02-13_04-29-09.png?alt=media&token=11f432b7-7c2f-4217-8818-41dc68f59d83" alt="Gift Sheep icon">
+    </div>
+    <h1>Gift Sheep</h1>
+    <p>Earn Rewards Easily & Securely</p>
+    <a href="#" class="btn-download"><i class="fab fa-google-play"></i> Download App</a>
+    
+    <!-- Download counter badge -->
+    <div class="badge-downloads">
+      <i class="fas fa-download"></i> <span>+500K Downloads</span> <i class="fas fa-star" style="color:#f5b342;"></i>
+    </div>
+  </section>
+
+  <!-- Google Play badge -->
+  <div class="google-play-badge">
+    <a href="#"><i class="fab fa-google-play"></i> GET IT ON Google Play</a>
+  </div>
+
+  <!-- Three minimal features (POINTS, REFERRAL, PAYMENT) simplified -->
+  <div class="features">
+    <div class="feature">
+      <i class="fas fa-tasks"></i>
+      <h3>POINTS</h3>
+      <p>Offers & surveys · Collect coins</p>
+    </div>
+    <div class="feature">
+      <i class="fas fa-user-friends"></i>
+      <h3>REFERRAL</h3>
+      <p>Share & get 50% off</p>
+    </div>
+    <div class="feature">
+      <i class="fas fa-wallet"></i>
+      <h3>PAYMENT</h3>
+      <p>Refund 30 days · quick cashout</p>
+    </div>
+  </div>
+
+  <!-- "Became a Partner" callout -->
+  <div class="partner-callout">
+    <span><i class="fas fa-handshake"></i> Became a Partner <i class="fas fa-arrow-right"></i></span>
+  </div>
+
+  <!-- ===== الصور تحت الزرار الأصفر في نص الموقع تماماً ===== -->
+  <div class="app-gallery">
+    <h2>✨ App Highlights</h2>
+    <div class="gallery-grid">
+      <!-- image 44.png -->
+      <div class="gallery-item">
+        <img src="https://firebasestorage.googleapis.com/v0/b/gift-drop-73021.firebasestorage.app/o/44.png?alt=media&token=51a0413a-21dc-4b0b-bde9-0480d617e858" alt="Gift Sheep screen 1">
+      </div>
+      <!-- image 55.png -->
+      <div class="gallery-item">
+        <img src="https://firebasestorage.googleapis.com/v0/b/gift-drop-73021.firebasestorage.app/o/55.png?alt=media&token=5652f12b-0d70-42f7-b366-21a1d57d0423" alt="Gift Sheep screen 2">
+      </div>
+      <!-- image 77.png -->
+      <div class="gallery-item">
+        <img src="https://firebasestorage.googleapis.com/v0/b/gift-drop-73021.firebasestorage.app/o/77.png?alt=media&token=c604ae4d-f2eb-4c8e-a89c-9489865e0815" alt="Gift Sheep screen 3">
+      </div>
+      <!-- image 88.png -->
+      <div class="gallery-item">
+        <img src="https://firebasestorage.googleapis.com/v0/b/gift-drop-73021.firebasestorage.app/o/88.png?alt=media&token=0cefde68-8e29-4f8c-ac5b-7cc3ba1b696c" alt="Gift Sheep screen 4">
+      </div>
+    </div>
+  </div>
+  <!-- ===== نهاية قسم الصور ===== -->
+
+  <!-- About Gift Sheep card (enhanced description) -->
+  <div class="about-card">
+    <h2>🐑 Gift Sheep</h2>
+    <p>The “Gift Sheep” application is an entertaining and easy way to earn money without experience — complete surveys, refer friends, and withdraw via e-wallets, game cards, or recharge codes. Collect sun coins (Mice) and redeem rewards!</p>
+    <div class="icon-row">
+      <i class="fas fa-clipboard-list"></i> Surveys
+      <i class="fas fa-users"></i> Referral
+      <i class="fas fa-coins"></i> Withdraw
+    </div>
+  </div>
+
+  <!-- Extra download button (optional but keeps consistency) -->
+  <div style="text-align: center; margin: 1.5rem 0;">
+    <a href="#" class="btn-download" style="font-size:1.1rem; padding:0.7rem 2rem;"><i class="fab fa-google-play"></i> Download from Google Play</a>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    © 2025 Gift Sheep — earn like a boss 🐑✨
+  </footer>
+
+</body>
+</html>
