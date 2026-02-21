@@ -4,7 +4,6 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
   <title>Gift Sheep · Delete Account</title>
-  <!-- Font Awesome (optional) -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <style>
     * {
@@ -264,7 +263,6 @@
 </head>
 <body>
 
-  <!-- navigation (متجاوب) -->
   <nav>
     <a href="index.html">Home</a>
     <a href="privacy.html">Privacy</a>
@@ -281,7 +279,6 @@
   <div class="delete-card">
     <h2>Delete Your Gift Sheep Account</h2>
 
-    <!-- steps سريعة (تظهر بشكل أنيق في جميع الأحجام) -->
     <div style="background: #221c38; border-radius: 30px; padding: 1.8rem; margin-bottom: 2rem;">
       <h3 style="margin-top: 0;">📋 How to delete via app (quick way)</h3>
       <ol style="font-size: inherit; padding-left: 1.5rem;">
@@ -292,7 +289,6 @@
       <p><i class="fas fa-exclamation-triangle" style="color: #fbaa4b;"></i> <strong>Note:</strong> After deletion, all progress, points, and rewards will be permanently removed.</p>
     </div>
 
-    <!-- نموذج الحذف اليدوي -->
     <div class="delete-form" id="deleteForm">
       <h3 style="margin-top: 0; color: #ffc075;">⌨️ Request manual deletion</h3>
       <p>If you can't delete from the app, fill in the details below. We'll process your request.</p>
@@ -314,12 +310,10 @@
       <p style="margin-top: 1.5rem; color: #b9acdf; word-break: break-word;">You can also contact us directly: <strong style="word-break: break-all;">giftsheep.support.com@giftsheep.it.com</strong></p>
     </div>
 
-    <!-- رسالة التقدم (تظهر بعد الإرسال) -->
     <div id="progressMessage" class="progress-message">
       <i class="fas fa-spinner fa-pulse"></i> Account deletion is in progress. We'll notify you shortly.
     </div>
 
-    <!-- تذكير بالبريد الإلكتروني -->
     <div class="note">
       <i class="fas fa-shield-alt"></i> If unable to delete your account from inside the app, contact: <strong style="word-break: break-all;">giftsheep.support.com@giftsheep.it.com</strong>
     </div>
@@ -336,19 +330,44 @@
       const progressMsg = document.getElementById('progressMessage');
 
       form.addEventListener('submit', function(e) {
-        e.preventDefault();  // prevent actual submission
+        e.preventDefault();  // لمنع إعادة تحميل الصفحة الافتراضي
 
         const email = document.getElementById('email').value.trim();
+        const reason = document.getElementById('reason').value.trim();
+
         if (!email) {
           alert('Please enter your email address.');
           return;
         }
 
-        // Hide the form, show progress message
+        // إخفاء الفورم وإظهار رسالة التحميل
         deleteFormDiv.style.display = 'none';
         progressMsg.style.display = 'block';
+        progressMsg.innerHTML = '<i class="fas fa-spinner fa-pulse"></i> Sending your request...';
 
-        console.log('Deletion requested for:', email);
+        // إرسال البيانات باستخدام FormSubmit API
+        fetch("https://formsubmit.co/ajax/giftsheep.support.com@giftsheep.it.com", {
+            method: "POST",
+            headers: { 
+                'Content-Type': 'application/json',
+                'Accept': 'application/json'
+            },
+            body: JSON.stringify({
+                _subject: "New Account Deletion Request - Gift Sheep", // عنوان الرسالة
+                Email: email,
+                Reason: reason || "No reason provided" // إذا ترك السبب فارغاً
+            })
+        })
+        .then(response => response.json())
+        .then(data => {
+            // نجاح الإرسال: تغيير الرسالة لتأكيد النجاح
+            progressMsg.innerHTML = '<i class="fas fa-check-circle" style="color: #8DBE24;"></i> Your request has been sent successfully. We will process it shortly.';
+        })
+        .catch(error => {
+            // فشل الإرسال: تغيير الرسالة للتنبيه بالخطأ
+            console.error(error);
+            progressMsg.innerHTML = '<i class="fas fa-exclamation-triangle" style="color: #FF5252;"></i> Something went wrong. Please email us directly.';
+        });
       });
     })();
   </script>
