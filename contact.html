@@ -21,7 +21,7 @@
       padding: 1rem 1rem 0;
     }
 
-    /* glass navigation (متجاوب) */
+    /* glass navigation */
     nav {
       display: flex;
       flex-wrap: wrap;
@@ -117,7 +117,7 @@
       margin: 2.5rem 0;
     }
 
-    /* تم التعديل هنا ليدعم رابط <a> */
+    /* زر الإيميل القابل للضغط بقوة */
     .email-item {
       background: #251e3a;
       border-radius: 60px;
@@ -130,10 +130,13 @@
       gap: 1rem;
       border: 1px solid #fbaa4b;
       box-shadow: 0 8px 0 #4a2e18;
-      transition: 0.2s;
+      transition: all 0.2s ease;
       flex-wrap: wrap;
-      text-decoration: none; /* إزالة خط الرابط */
-      cursor: pointer;
+      text-decoration: none !important; 
+      cursor: pointer !important;
+      position: relative;
+      z-index: 10;
+      -webkit-tap-highlight-color: transparent;
     }
 
     .email-item:hover {
@@ -151,6 +154,7 @@
     .email-item i {
       font-size: clamp(1.5rem, 4vw, 2rem);
       color: #fbaa4b;
+      pointer-events: none; /* عشان الضغطة تيجي على الزرار نفسه */
     }
 
     .email-item .email-address {
@@ -159,6 +163,7 @@
       color: #ffdb9f;
       word-break: break-all;
       text-align: center;
+      pointer-events: none; /* عشان الضغطة تيجي على الزرار نفسه */
     }
 
     .contact-note {
@@ -179,7 +184,6 @@
       font-size: clamp(0.9rem, 2vw, 1.1rem);
     }
 
-    /* تحسينات للشاشات الصغيرة */
     @media (max-width: 600px) {
       nav {
         gap: 0.6rem 0.8rem;
@@ -218,12 +222,12 @@
     <p>If you have any questions, feedback, or need assistance, please reach out to us via email:</p>
 
     <div class="email-list">
-      <a href="mailto:giftsheep.support.com@giftsheep.it.com" class="email-item">
+      <a href="mailto:giftsheep.support.com@giftsheep.it.com" target="_blank" onclick="window.location.href='mailto:giftsheep.support.com@giftsheep.it.com';" class="email-item">
         <i class="fas fa-envelope"></i>
         <span class="email-address">giftsheep.support.com@giftsheep.it.com</span>
       </a>
 
-      <a href="mailto:giftsheep.support.com@giftsheep.it.com" class="email-item">
+      <a href="mailto:giftsheep.support.com@giftsheep.it.com" target="_blank" onclick="window.location.href='mailto:giftsheep.support.com@giftsheep.it.com';" class="email-item">
         <i class="fas fa-envelope-open-text"></i>
         <span class="email-address">giftsheep.support.com@giftsheep.it.com</span>
       </a>
