@@ -117,7 +117,7 @@
       margin: 2.5rem 0;
     }
 
-    /* زر الإيميل القابل للضغط بقوة */
+    /* زر الإيميل القابل للضغط */
     .email-item {
       background: #251e3a;
       border-radius: 60px;
@@ -132,10 +132,8 @@
       box-shadow: 0 8px 0 #4a2e18;
       transition: all 0.2s ease;
       flex-wrap: wrap;
-      text-decoration: none !important; 
-      cursor: pointer !important;
-      position: relative;
-      z-index: 10;
+      text-decoration: none; 
+      cursor: pointer;
       -webkit-tap-highlight-color: transparent;
     }
 
@@ -154,7 +152,6 @@
     .email-item i {
       font-size: clamp(1.5rem, 4vw, 2rem);
       color: #fbaa4b;
-      pointer-events: none; /* عشان الضغطة تيجي على الزرار نفسه */
     }
 
     .email-item .email-address {
@@ -163,7 +160,6 @@
       color: #ffdb9f;
       word-break: break-all;
       text-align: center;
-      pointer-events: none; /* عشان الضغطة تيجي على الزرار نفسه */
     }
 
     .contact-note {
@@ -222,12 +218,12 @@
     <p>If you have any questions, feedback, or need assistance, please reach out to us via email:</p>
 
     <div class="email-list">
-      <a href="mailto:giftsheep.support.com@giftsheep.it.com" target="_blank" onclick="window.location.href='mailto:giftsheep.support.com@giftsheep.it.com';" class="email-item">
+      <a href="mailto:giftsheep.support.com@giftsheep.it.com?subject=Support%20Request%20-%20Gift%20Sheep" class="email-item">
         <i class="fas fa-envelope"></i>
         <span class="email-address">giftsheep.support.com@giftsheep.it.com</span>
       </a>
 
-      <a href="mailto:giftsheep.support.com@giftsheep.it.com" target="_blank" onclick="window.location.href='mailto:giftsheep.support.com@giftsheep.it.com';" class="email-item">
+      <a href="mailto:giftsheep.support.com@giftsheep.it.com?subject=Support%20Request%20-%20Gift%20Sheep" class="email-item">
         <i class="fas fa-envelope-open-text"></i>
         <span class="email-address">giftsheep.support.com@giftsheep.it.com</span>
       </a>
