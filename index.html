@@ -4,7 +4,6 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
   <title>Gift Sheep · earn stylishly</title>
-  <!-- Font Awesome for crisp icons (optional but adds pro touch) -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <style>
     * {
@@ -213,7 +212,7 @@
       font-size: 0.85rem;
     }
 
-    /* ===== App images gallery (4 images) - في نص الموقع ===== */
+    /* ===== App images gallery (6 images) - في نص الموقع ===== */
     .app-gallery {
       margin: 2rem 0 2.5rem;
     }
@@ -228,7 +227,8 @@
 
     .gallery-grid {
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
+      /* تم التعديل لـ 3 عواميد عشان تناسب الـ 6 صور */
+      grid-template-columns: repeat(3, 1fr);
       gap: 1.5rem;
       align-items: stretch;
     }
@@ -396,7 +396,6 @@
 </head>
 <body>
 
-  <!-- Navigation -->
   <nav>
     <a href="index.html">Home</a>
     <a href="privacy.html">Privacy</a>
@@ -405,7 +404,6 @@
     <a href="contact.html">Contact</a>
   </nav>
 
-  <!-- Hero section with app icon -->
   <section class="hero">
     <div class="hero-icon">
       <img src="https://firebasestorage.googleapis.com/v0/b/gift-drop-73021.firebasestorage.app/o/photo_2026-02-13_04-29-09.png?alt=media&token=11f432b7-7c2f-4217-8818-41dc68f59d83" alt="Gift Sheep icon">
@@ -414,18 +412,15 @@
     <p>Earn Rewards Easily & Securely</p>
     <a href="#" class="btn-download"><i class="fab fa-google-play"></i> Download App</a>
     
-    <!-- Download counter badge -->
     <div class="badge-downloads">
       <i class="fas fa-download"></i> <span>+500K Downloads</span> <i class="fas fa-star" style="color:#f5b342;"></i>
     </div>
   </section>
 
-  <!-- Google Play badge -->
   <div class="google-play-badge">
     <a href="#"><i class="fab fa-google-play"></i> GET IT ON Google Play</a>
   </div>
 
-  <!-- Three minimal features (POINTS, REFERRAL, PAYMENT) simplified -->
   <div class="features">
     <div class="feature">
       <i class="fas fa-tasks"></i>
@@ -444,36 +439,33 @@
     </div>
   </div>
 
-  <!-- "Became a Partner" callout -->
   <div class="partner-callout">
     <span><i class="fas fa-handshake"></i> Became a Partner <i class="fas fa-arrow-right"></i></span>
   </div>
 
-  <!-- ===== الصور تحت الزرار الأصفر في نص الموقع تماماً ===== -->
   <div class="app-gallery">
     <h2>✨ App Highlights</h2>
     <div class="gallery-grid">
-      <!-- image 44.png -->
       <div class="gallery-item">
-        <img src="https://firebasestorage.googleapis.com/v0/b/gift-drop-73021.firebasestorage.app/o/44.png?alt=media&token=51a0413a-21dc-4b0b-bde9-0480d617e858" alt="Gift Sheep screen 1">
+        <img src="https://firebasestorage.googleapis.com/v0/b/gift-drop-73021.firebasestorage.app/o/photo_%D9%A2%D9%A0%D9%A2%D9%A6-%D9%A0%D9%A2-%D9%A2%D9%A1_%D9%A0%D9%A0-%D9%A1%D9%A1-%D9%A4%D9%A1%20(3).jpg?alt=media&token=1e426b39-a88b-4039-86b6-f3c5749db799" alt="Gift Sheep screen 1">
       </div>
-      <!-- image 55.png -->
       <div class="gallery-item">
-        <img src="https://firebasestorage.googleapis.com/v0/b/gift-drop-73021.firebasestorage.app/o/55.png?alt=media&token=5652f12b-0d70-42f7-b366-21a1d57d0423" alt="Gift Sheep screen 2">
+        <img src="https://firebasestorage.googleapis.com/v0/b/gift-drop-73021.firebasestorage.app/o/photo_%D9%A2%D9%A0%D9%A2%D9%A6-%D9%A0%D9%A2-%D9%A2%D9%A1_%D9%A0%D9%A0-%D9%A1%D9%A1-%D9%A4%D9%A1.jpg?alt=media&token=9f746e8c-17b1-4900-8b11-39b9108d3916" alt="Gift Sheep screen 2">
       </div>
-      <!-- image 77.png -->
       <div class="gallery-item">
-        <img src="https://firebasestorage.googleapis.com/v0/b/gift-drop-73021.firebasestorage.app/o/77.png?alt=media&token=c604ae4d-f2eb-4c8e-a89c-9489865e0815" alt="Gift Sheep screen 3">
+        <img src="https://firebasestorage.googleapis.com/v0/b/gift-drop-73021.firebasestorage.app/o/photo_%D9%A2%D9%A0%D9%A2%D9%A6-%D9%A0%D9%A2-%D9%A2%D9%A1_%D9%A0%D9%A0-%D9%A1%D9%A4-%D9%A3%D9%A7.jpg?alt=media&token=0e7dc87e-0b48-4a78-a561-725a17339cf1" alt="Gift Sheep screen 3">
       </div>
-      <!-- image 88.png -->
       <div class="gallery-item">
-        <img src="https://firebasestorage.googleapis.com/v0/b/gift-drop-73021.firebasestorage.app/o/88.png?alt=media&token=0cefde68-8e29-4f8c-ac5b-7cc3ba1b696c" alt="Gift Sheep screen 4">
+        <img src="https://firebasestorage.googleapis.com/v0/b/gift-drop-73021.firebasestorage.app/o/photo_%D9%A2%D9%A0%D9%A2%D9%A6-%D9%A0%D9%A2-%D9%A2%D9%A1_%D9%A0%D9%A0-%D9%A1%D9%A4-%D9%A4%D9%A9.jpg?alt=media&token=2570023f-27b7-43e2-bcf1-603c29a52241" alt="Gift Sheep screen 4">
+      </div>
+      <div class="gallery-item">
+        <img src="https://firebasestorage.googleapis.com/v0/b/gift-drop-73021.firebasestorage.app/o/photo_%D9%A2%D9%A0%D9%A2%D9%A6-%D9%A0%D9%A2-%D9%A2%D9%A1_%D9%A0%D9%A0-%D9%A1%D9%A1-%D9%A4%D9%A1%20(4).jpg?alt=media&token=a05a2714-7ca0-4342-bacb-e29573d58ad4" alt="Gift Sheep screen 5">
+      </div>
+      <div class="gallery-item">
+        <img src="https://firebasestorage.googleapis.com/v0/b/gift-drop-73021.firebasestorage.app/o/photo_%D9%A2%D9%A0%D9%A2%D9%A6-%D9%A0%D9%A2-%D9%A2%D9%A1_%D9%A0%D9%A0-%D9%A1%D9%A1-%D9%A4%D9%A1%20(2).jpg?alt=media&token=cc2ba520-8754-482f-9f93-a34a0a7718ab" alt="Gift Sheep screen 6">
       </div>
     </div>
   </div>
-  <!-- ===== نهاية قسم الصور ===== -->
-
-  <!-- About Gift Sheep card (enhanced description) -->
   <div class="about-card">
     <h2>🐑 Gift Sheep</h2>
     <p>The “Gift Sheep” application is an entertaining and easy way to earn money without experience — complete surveys, refer friends, and withdraw via e-wallets, game cards, or recharge codes. Collect sun coins (Mice) and redeem rewards!</p>
@@ -484,14 +476,12 @@
     </div>
   </div>
 
-  <!-- Extra download button (optional but keeps consistency) -->
   <div style="text-align: center; margin: 1.5rem 0;">
     <a href="#" class="btn-download" style="font-size:1.1rem; padding:0.7rem 2rem;"><i class="fab fa-google-play"></i> Download from Google Play</a>
   </div>
 
-  <!-- Footer -->
   <footer>
-    © 2025 Gift Sheep — earn like a boss 🐑✨
+    © 2026 Gift Sheep — earn like a boss 🐑✨
   </footer>
 
 </body>
